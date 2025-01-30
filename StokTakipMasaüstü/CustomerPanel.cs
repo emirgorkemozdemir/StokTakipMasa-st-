@@ -11,21 +11,21 @@ using System.Windows.Forms;
 
 namespace StokTakipMasaüstü
 {
-    public partial class CategoryPanel : Form
+    public partial class CustomerPanel : Form
     {
-        public CategoryPanel()
+        public CustomerPanel()
         {
             InitializeComponent();
         }
 
-        public void KategorileriYukle()
+        public void MusterileriYukle()
         {
             // En başta baglantıyı kontrol etmem lazım
             SqlConnectionClass.CheckConnection();
 
             // CategoryPanel yüklendiginde buradaki işlemler gerçekleşecek. 
             // SqlCommand içerisine baglantımızı attık
-            SqlCommand command_load = new SqlCommand("SELECT * FROM TableCategory", SqlConnectionClass.myconnection);
+            SqlCommand command_load = new SqlCommand("SELECT * FROM TableCustomer", SqlConnectionClass.myconnection);
 
             // SQL Komutunu çalıştırıp verileri ekrana almam lazım. Adapter verileri dönüştürür.
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command_load);
@@ -40,51 +40,33 @@ namespace StokTakipMasaüstü
             dgrid.DataSource = data_table;
         }
 
-        private void CategoryPanel_Load(object sender, EventArgs e)
+        private void CustomerPanel_Load(object sender, EventArgs e)
         {
-            KategorileriYukle();
+            MusterileriYukle();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Buraya diger taraftan da yardım alarak müşteri ekle kodunu yazın.
             // En başta baglantıyı kontrol etmem lazım
             SqlConnectionClass.CheckConnection();
 
             // SqlCommand içerisine ekleme kodumuzu yazıp baglantımızı atıyoruz
-            SqlCommand command_add= new SqlCommand("INSERT INTO TableCategory (CategoryName) VALUES (@pname)", SqlConnectionClass.myconnection);
+            SqlCommand command_add = new SqlCommand("INSERT INTO TableCustomer (CustomerNameSurname) VALUES (@pname)", SqlConnectionClass.myconnection);
 
             // Açtıgım parametreye deger veriyorum
-            command_add.Parameters.AddWithValue("@pname",tboxAddName.Text);
+            command_add.Parameters.AddWithValue("@pname", tboxAddName.Text);
 
             // Komutu çalıştırıyorum
             command_add.ExecuteNonQuery();
 
             // Ekrandaki verileri tekrar yüklüyorum
-            KategorileriYukle();
+            MusterileriYukle();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            // En başta baglantıyı kontrol etmem lazım
-            SqlConnectionClass.CheckConnection();
-
-            // SqlCommand içerisine silme kodumuzu yazıyourz
-            SqlCommand command_delete = new SqlCommand("DELETE FROM TableCategory WHERE CategoryID=@pid", SqlConnectionClass.myconnection);
-
-            // Komuttaki parametreye deger veriyorum
-            command_delete.Parameters.AddWithValue("@pid",secili_id);
-
-            // Komutu çalıştırıyorum
-            command_delete.ExecuteNonQuery();
-
-            // Ekrandaki verileri tekrar yüklüyorum
-            KategorileriYukle();
-        }
-
-        int secili_id = 0;
         private void dgrid_SelectionChanged(object sender, EventArgs e)
         {
-            secili_id = Convert.ToInt32(dgrid.CurrentRow.Cells[0].Value);
+
         }
     }
 }

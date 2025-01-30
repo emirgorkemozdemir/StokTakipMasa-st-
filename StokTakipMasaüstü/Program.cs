@@ -16,7 +16,7 @@ namespace StokTakipMasaüstü
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CategoryPanel());
+            Application.Run(new CustomerPanel());
         }
     }
 }
