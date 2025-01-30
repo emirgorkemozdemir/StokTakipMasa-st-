@@ -64,9 +64,41 @@ namespace StokTakipMasaüstü
             MusterileriYukle();
         }
 
+        int secili_id = 0;
         private void dgrid_SelectionChanged(object sender, EventArgs e)
         {
+            secili_id = Convert.ToInt32(dgrid.CurrentRow.Cells[0].Value);
+            tboxUpdateName.Text = dgrid.CurrentRow.Cells[1].Value.ToString();
+        }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // secili_id degerini kullanarak ve diger taraftan yardım alarak
+            // silme işlemini yazınız.
+            SqlConnectionClass.CheckConnection();
+
+            // SqlCommand içerisine ekleme kodumuzu yazıp baglantımızı atıyoruz
+            SqlCommand command_add = new SqlCommand("DELETE FROM TableCustomer WHERE CustomerID=@pid", SqlConnectionClass.myconnection);
+
+            // Açtıgım parametreye deger veriyorum
+            command_add.Parameters.AddWithValue("@pid", secili_id);
+
+            // Komutu çalıştırıyorum
+            command_add.ExecuteNonQuery();
+
+            // Ekrandaki verileri tekrar yüklüyorum
+            MusterileriYukle();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlConnectionClass.CheckConnection();
+
+            SqlCommand command_update = new SqlCommand("UPDATE TableCustomer SET CustomerNameSurname=@pname WHERE CustomerID=@pid",SqlConnectionClass.myconnection);
+            command_update.Parameters.AddWithValue("@pname",tboxUpdateName.Text);
+            command_update.Parameters.AddWithValue("@pid", secili_id);
+            command_update.ExecuteNonQuery();
+            MusterileriYukle();
         }
     }
 }

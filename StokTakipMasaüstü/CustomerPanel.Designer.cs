@@ -31,13 +31,16 @@
             this.dgrid = new System.Windows.Forms.DataGridView();
             this.tboxAddName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.tboxUpdateName = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid)).BeginInit();
             this.SuspendLayout();
             // 
             // dgrid
             // 
             this.dgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid.Location = new System.Drawing.Point(13, 13);
+            this.dgrid.Location = new System.Drawing.Point(13, 12);
             this.dgrid.Name = "dgrid";
             this.dgrid.Size = new System.Drawing.Size(775, 150);
             this.dgrid.TabIndex = 0;
@@ -60,11 +63,41 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(229, 195);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Müşteriyi Sil";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // tboxUpdateName
+            // 
+            this.tboxUpdateName.Location = new System.Drawing.Point(408, 197);
+            this.tboxUpdateName.Name = "tboxUpdateName";
+            this.tboxUpdateName.Size = new System.Drawing.Size(100, 20);
+            this.tboxUpdateName.TabIndex = 4;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(408, 245);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(109, 23);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "Müşteriyi Güncelle";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // CustomerPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 338);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.tboxUpdateName);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tboxAddName);
             this.Controls.Add(this.dgrid);
@@ -82,5 +115,8 @@
         private System.Windows.Forms.DataGridView dgrid;
         private System.Windows.Forms.TextBox tboxAddName;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox tboxUpdateName;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
