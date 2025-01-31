@@ -100,5 +100,12 @@ namespace StokTakipMasaüstü
             command_update.ExecuteNonQuery();
             MusterileriYukle();
         }
+
+        private void btnGoToCategory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CategoryPanel cp = new CategoryPanel();
+            cp.Show();
+        }
     }
 }

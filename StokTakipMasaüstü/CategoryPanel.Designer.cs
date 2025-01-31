@@ -34,13 +34,16 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.tboxUpdateName = new System.Windows.Forms.TextBox();
+            this.btnGoToCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid)).BeginInit();
             this.SuspendLayout();
             // 
             // dgrid
             // 
             this.dgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid.Location = new System.Drawing.Point(13, 13);
+            this.dgrid.Location = new System.Drawing.Point(12, 12);
             this.dgrid.Name = "dgrid";
             this.dgrid.Size = new System.Drawing.Size(742, 215);
             this.dgrid.TabIndex = 0;
@@ -91,12 +94,42 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(493, 279);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 23);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Güncelle";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // tboxUpdateName
+            // 
+            this.tboxUpdateName.Location = new System.Drawing.Point(493, 244);
+            this.tboxUpdateName.Name = "tboxUpdateName";
+            this.tboxUpdateName.Size = new System.Drawing.Size(100, 20);
+            this.tboxUpdateName.TabIndex = 7;
+            // 
+            // btnGoToCustomer
+            // 
+            this.btnGoToCustomer.Location = new System.Drawing.Point(653, 253);
+            this.btnGoToCustomer.Name = "btnGoToCustomer";
+            this.btnGoToCustomer.Size = new System.Drawing.Size(81, 67);
+            this.btnGoToCustomer.TabIndex = 9;
+            this.btnGoToCustomer.Text = "Müşteri Panelini Aç";
+            this.btnGoToCustomer.UseVisualStyleBackColor = true;
+            this.btnGoToCustomer.Click += new System.EventHandler(this.btnGoToCustomer_Click);
+            // 
             // CategoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(767, 347);
+            this.Controls.Add(this.btnGoToCustomer);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.tboxUpdateName);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAdd);
@@ -120,5 +153,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox tboxUpdateName;
+        private System.Windows.Forms.Button btnGoToCustomer;
     }
 }

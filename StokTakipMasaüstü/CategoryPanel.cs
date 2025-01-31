@@ -85,6 +85,25 @@ namespace StokTakipMasaüstü
         private void dgrid_SelectionChanged(object sender, EventArgs e)
         {
             secili_id = Convert.ToInt32(dgrid.CurrentRow.Cells[0].Value);
+            tboxUpdateName.Text = dgrid.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SqlConnectionClass.CheckConnection();
+
+            SqlCommand command_update = new SqlCommand("UPDATE TableCategory SET CategoryName=@pname WHERE CategoryID=@pid",SqlConnectionClass.myconnection);
+            command_update.Parameters.AddWithValue("@pname",tboxUpdateName.Text);
+            command_update.Parameters.AddWithValue("@pid", secili_id);
+            command_update.ExecuteNonQuery();
+            KategorileriYukle();
+        }
+
+        private void btnGoToCustomer_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerPanel cp = new CustomerPanel();
+            cp.Show();
         }
     }
 }

@@ -34,6 +34,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.tboxUpdateName = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnGoToCategory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,11 +91,22 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnGoToCategory
+            // 
+            this.btnGoToCategory.Location = new System.Drawing.Point(646, 213);
+            this.btnGoToCategory.Name = "btnGoToCategory";
+            this.btnGoToCategory.Size = new System.Drawing.Size(81, 67);
+            this.btnGoToCategory.TabIndex = 10;
+            this.btnGoToCategory.Text = "Kategori Panelini Aç";
+            this.btnGoToCategory.UseVisualStyleBackColor = true;
+            this.btnGoToCategory.Click += new System.EventHandler(this.btnGoToCategory_Click);
+            // 
             // CustomerPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 338);
+            this.Controls.Add(this.btnGoToCategory);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.tboxUpdateName);
             this.Controls.Add(this.btnDelete);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tboxUpdateName;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnGoToCategory;
     }
 }
